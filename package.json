@@ -1,0 +1,27 @@
+{
+  "name": "covidheroapi",
+  "version": "1.0.0",
+  "description": "REST API for querying COVID-19 data by US counties.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chasefarmer2808/CovidHeroApi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chasefarmer2808/CovidHeroApi/issues"
+  },
+  "homepage": "https://github.com/chasefarmer2808/CovidHeroApi#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
