@@ -1,10 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const counties = require('./routes/counties');
+require('dotenv').config();
 
 const app = express();
 const port = 3000;
-const dbUrl = 'mongodb://localhost:27017/covid';
+var dbUrl = 'mongodb://localhost:27017/covid';
+
+if (process.env.NODE_ENV == 'production') {
+    dbUrl = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}`;
+}
 
 mongoose.connect(dbUrl, { useNewUrlParser: true });
 const db = mongoose.connection
