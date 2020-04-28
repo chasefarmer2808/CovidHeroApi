@@ -12,7 +12,7 @@ const connectDb = async (cb) => {
     try {
         MongoClient.connect(dbUrl, (err, db) => {
             console.log('Database connected: ', dbUrl);
-            _db = db.db('covid');
+            _db = db.db('covidhero');
             return cb(err);
         })
     } catch(e) {
