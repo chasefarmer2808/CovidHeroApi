@@ -19,8 +19,13 @@ router.get('/:state/:county/latest', async (req, res) => {
     })
     .sort({ date: -1 })
     .limit(1).toArray();
-    
-    res.send(latestCount);
+
+    if (latestCount.length) {
+        res.send(latestCount[0])
+    }
+    else {
+        res.status(404)
+    }
 });
 
 router.get('/:state/:county', async (req, res) => {
