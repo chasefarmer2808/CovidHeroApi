@@ -39,8 +39,8 @@ router.get('/:state/:county', async (req, res) => {
         state,
         county,
         date: {
-            $gte: '2020-03-01',
-            $lte: '2020-04-28'
+            $gte: startDate,
+            $lte: endDate
         }
     })
     .sort({ date: -1 })
