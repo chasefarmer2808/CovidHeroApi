@@ -43,7 +43,7 @@ router.get('/:state/:county', async (req, res) => {
             $lte: endDate
         }
     })
-    .sort({ date: -1 })
+    .sort({ date: 1 })
     .toArray();
     
     res.send(counts);
