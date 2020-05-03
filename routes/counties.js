@@ -8,6 +8,43 @@ router.get('/', async (req, res) => {
     res.send(counties);
 });
 
+router.get('/list', async (req, res) => {
+    const Counties = mongoClient.getCountiesCollection();
+
+    const aggregate = [
+        {
+          '$sort': {
+            'date': 1
+          }
+        }, {
+          '$group': {
+            '_id': {
+              'county': '$county'
+            }, 
+            'state': {
+              '$first': '$state'
+            }, 
+            'county': {
+              '$first': '$county'
+            }
+          }
+        }, {
+          '$sort': {
+            'county': 1
+          }
+        }, {
+          '$sort': {
+            'state': 1
+          }
+        }
+      ]
+
+    const counties = await Counties.aggregate(aggregate).toArray();
+    console.log(counties.length)
+    
+    res.send(counties)
+});
+
 router.get('/:state/:county/latest', async (req, res) => {
     const Counties = mongoClient.getCountiesCollection();
     const state = req.params['state'];
