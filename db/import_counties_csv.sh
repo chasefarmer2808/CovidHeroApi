@@ -4,6 +4,8 @@ read_var() {
     echo ${VAR[1]}
 }
 
+cd "${0%/*}"
+
 DB_USER=$(read_var DB_USER ../.env)
 DB_PASSWORD=$(read_var DB_PASSWORD ../.env)
 
