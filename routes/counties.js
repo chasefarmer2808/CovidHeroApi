@@ -19,6 +19,7 @@ router.get('/list', async (req, res) => {
         }, {
           '$group': {
             '_id': {
+              'state': '$state',
               'county': '$county'
             }, 
             'state': {
